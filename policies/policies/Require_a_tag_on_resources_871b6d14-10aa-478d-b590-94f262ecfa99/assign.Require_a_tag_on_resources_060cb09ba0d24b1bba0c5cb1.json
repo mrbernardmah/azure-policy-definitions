@@ -1,0 +1,36 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "identity": {
+  "principalId": "52329610-fdea-4331-9673-03b904852a50",
+  "tenantId": "f0b24c76-8e72-47e9-b4c2-9022e59e0b5c",
+  "type": "SystemAssigned"
+ },
+ "properties": {
+  "displayName": "Require a tag on resources",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99",
+  "scope": "/subscriptions/0892a31b-4124-4301-b110-2c415315be46",
+  "notScopes": [],
+  "parameters": {
+   "tagName": {
+    "value": "IT"
+   }
+  },
+  "description": "This will force all newly created resource groups to have the required tags.\n\nCreatedBy:\nScope: ",
+  "metadata": {
+   "assignedBy": "Bernard Mah",
+   "parameterScopes": {},
+   "createdBy": "d85c3166-25d7-425f-b3b4-259c20e478ee",
+   "createdOn": "2021-08-05T00:53:51.5222511Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/subscriptions/0892a31b-4124-4301-b110-2c415315be46/providers/Microsoft.Authorization/policyAssignments/060cb09ba0d24b1bba0c5cb1",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "060cb09ba0d24b1bba0c5cb1",
+ "location": "westus"
+}
