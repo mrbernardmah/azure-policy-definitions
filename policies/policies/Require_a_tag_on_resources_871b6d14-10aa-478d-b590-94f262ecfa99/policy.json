@@ -12,8 +12,14 @@
    "tagName": {
     "type": "String",
     "metadata": {
-     "displayName": "Tag Name",
-     "description": "Name of the tag, such as 'environment'"
+     "displayName": "Tag Name 1",
+     "description": "Name of the tag, such as 'CreatedBy'"
+   },
+    "tagName2": {
+     "type": "String",
+     "metadata": {
+        "displayName": "Tag Name 2",
+        "description": "Name of second tag, such as 'Scope'"
     }
    }
   },
