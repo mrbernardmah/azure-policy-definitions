@@ -1,0 +1,80 @@
+{
+ "properties": {
+  "displayName": "Global | Required Group Tags for Resource Groups",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "category": "Compliance",
+   "createdBy": "d85c3166-25d7-425f-b3b4-259c20e478ee",
+   "createdOn": "2021-08-05T03:20:11.2534327Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "BillTo": {
+    "type": "String",
+    "metadata": {
+     "description": "Provides a charge code or cost center to attribute the bill for the resources too. Tag value: Cost Center. Example: team@domain.com"
+    }
+   },
+   "Functional Area": {
+    "type": "String",
+    "metadata": {
+     "description": "Provides information on department or team is responsible for administering/supporting the application. Tag value: Team name/email. Example: 1506548"
+    }
+   },
+   "Environment": {
+    "type": "String",
+    "metadata": {
+     "description": "Provides information on what the resource group is used for (useful for maintenance, policy enforcement, chargeback, etc.) Tag value: Dev, QA, Stage, Test, Prod. Example: Prod"
+    }
+   },
+   "AppOwner": {
+    "type": "String",
+    "metadata": {
+     "description": "The Business app owner to contact. Tag value: Business App owners’ email. Example: name@domain.com"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     },
+     {
+      "not": {
+       "field": "[concat('tags[',parameters('BillTo'), ']')]",
+       "exists": "true"
+      }
+     },
+     {
+      "not": {
+       "field": "[concat('tags[',parameters('Functional Area'), ']')]",
+       "exists": "true"
+      }
+     },
+     {
+      "not": {
+       "field": "[concat('tags[',parameters('Environment'), ']')]",
+       "exists": "true"
+      }
+     },
+     {
+      "not": {
+       "field": "[concat('tags[',parameters('AppOwner'), ']')]",
+       "exists": "true"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/subscriptions/0892a31b-4124-4301-b110-2c415315be46/providers/Microsoft.Authorization/policyDefinitions/9b5c108b-d98a-462a-a827-5405d891e15b",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "9b5c108b-d98a-462a-a827-5405d891e15b"
+}
